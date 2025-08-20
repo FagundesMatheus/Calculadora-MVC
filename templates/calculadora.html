@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/style.css">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+    <div class="background">
+        <div class="calculadora">
+            <div class="visor">
+                <div class="visorCima">
+                    <span class="operacaoPassada" id="operacaoPassada"></span>
+                </div>
+                <div class="visorBaixo">
+                    <span class="operacaoAtual" id="operacaoAtual"></span>
+                </div>
+            </div>
+
+                <div class="teclado">
+                    <div class="botoes">
+                        <button name="porcentagem" value="%" class="botaoOperacao">%</button>
+                        <button name="limparEntrada" value="CE" class="botaoOperacao">CE</button>
+                        <button name="limpar" value="C" class="botaoOperacao">C</button>
+                        <button name="apagar" value="backspace" class="botaoOperacao">&#x232B;</button>
+                    </div>
+                    <div class="botoes">
+                        <button name="inverso" value="1/x" class="botaoOperacao">$$1/x$$</button>
+                        <button name="quadrado" value="x^2" class="botaoOperacao">$$x^2$$</button>
+                        <button name="raiz" value="sqrt" class="botaoOperacao">$$\sqrt[2]{x}$$</button>
+                        <button name="dividir" value="/" class="botaoOperacao">$$\div$$</button>
+                    </div>
+                    <div class="botoes">
+                        <button name="sete" value="7" class="botaoNumerico">7</button>
+                        <button name="oito" value="8" class="botaoNumerico">8</button>
+                        <button name="nove" value="9" class="botaoNumerico">9</button>
+                        <button name="multiplicar" value="*" class="botaoOperacao">$$\times$$</button>
+                    </div>
+                    <div class="botoes">
+                        <button name="quatro" value="4" class="botaoNumerico">4</button>
+                        <button name="cinco" value="5" class="botaoNumerico">5</button>
+                        <button name="seis" value="6" class="botaoNumerico">6</button>
+                        <button name="subtrair" value="-" class="botaoOperacao">-</button>
+                    </div>
+                    <div class="botoes">
+                        <button name="um" value="1" class="botaoNumerico">1</button>
+                        <button name="dois" value="2" class="botaoNumerico">2</button>
+                        <button name="tres" value="3" class="botaoNumerico">3</button>
+                        <button name="somar" value="+" class="botaoOperacao">+</button>
+                    </div>
+                    <div class="botoes">
+                        <button name="maisMenos" value="+/-" class="botaoNumerico">&plusmn;</button>
+                        <button name="zero" value="0" class="botaoNumerico">0</button>
+                        <button name="decimal" value="." class="botaoNumerico">,</button>
+                        <button name="igual" value="=" class="botaoIgual">=</button>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>
