@@ -5,9 +5,20 @@ const botaoIgual = document.querySelector('.botaoIgual');
 const visorCima = document.querySelector('.operacaoPassada');
 const visorBaixo = document.querySelector('.operacaoAtual');
 
-function igual(){
+async function igual(){
+    console.log('igual')
     visorCima.innerHTML += " " + visorBaixo.innerHTML;
-    visorBaixo.innerHTML = "tem que ver com o backend"
+
+    dados = {expressao: visorCima.innerHTML};
+
+    const resposta = await fetch("/", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dados) });
+    if (!resposta.ok) {
+      visorBaixo.innerHTML = 'ERRO'
+    }
+    const json = await resposta.json();
+    visorBaixo.innerHTML = json.resposta;
+    visorCima.innerHTML = ""
+    console.log(resposta);
 }
 botaoIgual.addEventListener('click', function(){
     igual()
@@ -83,12 +94,12 @@ botoesOperacao.forEach(botao => {
                 visorBaixo.innerHTML = '1/'+visorCima.innerHTML.slice(0, -2);
                 return
             }
-            visorBaixo.innerHTML = '1/'+visorCima.innerHTML;
+            visorBaixo.innerHTML = '1/'+visorBaixo.innerHTML;
             igual()
         }
         if (botao.value === 'sqrt'){
             if (visorBaixo.innerHTML == ''){
-                visorBaixo.innerHTML = 'sqrt(' + visorCima.innerHTML + ')';
+                visorBaixo.innerHTML = 'sqrt(' + visorCima.innerHTML.slice(0, -2) + ')';
                 return
             }
             visorBaixo.innerHTML = 'sqrt(' + visorBaixo.innerHTML + ')';
